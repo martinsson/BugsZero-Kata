@@ -16,8 +16,8 @@ Allows for
 * inverted parameters possible
 * invalid values,
 
-## Expose internals 
-Allows for
+## Exposed internals
+An object has its internals exposed. Aka FeatureEnvy. Allows for
 * logic potentially duplicated
 * low cohesion between logic and data
 
@@ -30,13 +30,14 @@ use of functions have to be done in a certain order and that order is not enforc
 * any validation that is **not** in the entry point of an application (rest call, ui-form, command-line, message bus, configuration). Database could be an entry point if data comes from other apps.
 * any duplicated validation down the callstack
 
-## Construction
+## Non constrained construction
 * Mandatory parameters not in constructor
 * Primitive parameters, allows for swapping order
 ** type parameters
 ** use builder
 
 ## Exception handling
+When you look closely much of exception handling is accidental, not essential.
 * adds complexity, often not essential complexity
 * throw to the "top" is better
 * try to make the exception impossible instead of handling it (ex, temporal coupling)
@@ -45,5 +46,6 @@ use of functions have to be done in a certain order and that order is not enforc
 * Off-by-one errors is common
 * index out of bounds
 
-## business rules incoherent with data structure
+## Business rules incoherent with data structure
 * ex: list for a set of colours - duplicated colours
+* Solution: validate data and build Business Objects ASAP
