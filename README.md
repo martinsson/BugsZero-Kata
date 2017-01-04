@@ -16,9 +16,9 @@ For initial guidance here's a list of typical problems and some suggested soluti
 ## Use of primitives 
 Allows for
 * logic potentially duplicated
-* no business constraints (ex: 
-** a persons age must be positive
-** an interest rate of 2 does it mean 2% or 200%?
+* no business constraints, for instance  
+  * a persons age must be positive
+  * an interest rate of 2 does it mean 2% or 200%?
 * inverted parameters possible
 * invalid values,
 
@@ -39,8 +39,8 @@ use of functions have to be done in a certain order and that order is not enforc
 ## Non constrained construction
 * Mandatory parameters not in constructor
 * Primitive parameters, allows for swapping order
-** type parameters
-** use builder
+  * type parameters
+  * use builder
 
 ## Exception handling
 When you look closely much of exception handling is accidental, not essential.
