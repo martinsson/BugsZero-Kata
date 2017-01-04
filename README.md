@@ -6,13 +6,19 @@ or another developer could introduce while extending the code. Imagine an altern
 
 You could take a project like the Legacy Code Retreat [trivia](https://github.com/jbrains/trivia) example
 
+Examples of BugsZero design
+[5 steps to mistake-proof software design](http://mozaicworks.com/blog/5-steps-to-mistake-proof-software-design/)
+[It's not a configuration issue. It’s a design issue](http://martinsson-johan.blogspot.fr/2016/06/its-not-configuration-issue-its-design.html)
+
 # List of design problems that can cause (unnecessary) bugs
 For initial guidance here's a list of typical problems and some suggested solutions.
 
 ## Use of primitives 
 Allows for
 * logic potentially duplicated
-* no business constraints
+* no business constraints (ex: 
+** a persons age must be positive
+** an interest rate of 2 does it mean 2% or 200%?
 * inverted parameters possible
 * invalid values,
 
