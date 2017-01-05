@@ -4,7 +4,7 @@ Practice Designing code for less bugs
 Take any codebase that you'e familiar with, and try to identify potential errors that a user could provoque,
 or another developer could introduce while extending the code. Imagine an alternative design that would solve or improve that problem.
 
-You could take a project like the Legacy Code Retreat [trivia](https://github.com/jbrains/trivia) example
+You could take a project like the Legacy Code Retreat [trivia](https://github.com/caradojo/trivia) example
 
 Examples of BugsZero design
 * [5 steps to mistake-proof software design](http://mozaicworks.com/blog/5-steps-to-mistake-proof-software-design/)
