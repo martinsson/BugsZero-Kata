@@ -2,7 +2,7 @@
 Practice Designing code for less bugs 
 
 Take any codebase that you'e familiar with, and try to identify potential errors that a user could provoque,
-or another developer could introduce while extending the code. Imagine an alternative design that would solve or improve that problem.
+or another developer could introduce while extending the code. Imagine an alternative design that would solve or improve that problem. The purpose is to experiment with design alternatives, so it is optional to actually write code and you probably don't want to write tests at all - you'll get more time for experimentation that way.
 
 You could take a project like the Legacy Code Retreat [trivia](https://github.com/caradojo/trivia) example
 
@@ -55,3 +55,7 @@ When you look closely much of exception handling is accidental, not essential.
 ## Business rules incoherent with data structure
 * ex: list for a set of colours - duplicated colours
 * Solution: validate data and build Business Objects ASAP
+
+# Explanations of #BugsZero
+[15 min intro](https://www.youtube.com/watch?v=dUjie_IYFY8) or go for the
+[full presentation](https://www.youtube.com/watch?v=gQR1NlkgLZU)
