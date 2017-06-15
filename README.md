@@ -16,10 +16,10 @@ Make sure you know of a few ways to design away bugs, by looking at a few exampl
 * [It's not a configuration issue. It’s a design issue](http://martinsson-johan.blogspot.fr/2016/06/its-not-configuration-issue-its-design.html)
 
 ## Intermediate
-We've found some weaknesses for you. Pick your choice in instructions-intermediate.md
+We've found some weaknesses for you. Pick your choice in [instructions-intermediate.md](https://github.com/martinsson/BugsZero-Kata/blob/master/instructions-intermediate.md)
 
 ## Advanced
-If you'e already accustomed this thinking this way, have a look at instructions-advanced.md
+If you'e already accustomed this thinking this way, have a look at [instructions-advanced.md](https://github.com/martinsson/BugsZero-Kata/blob/master/instructions-advanced.md)
 
 ## Next steps
 A list of bug-patterns, common, mostly unnecessary weaknesses in design.
