@@ -28,6 +28,7 @@ Go use this on some other code base!
  
 Give us some suggestions in the issues.
 
-# Resources on #BugsZero, the general part, not so much information on design techniques
+# Resources on #BugsZero
+The general part, not so much information on design techniques
 [15 min intro](https://www.youtube.com/watch?v=dUjie_IYFY8) or go for the
 [full presentation](https://www.youtube.com/watch?v=gQR1NlkgLZU)
