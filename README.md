@@ -8,8 +8,7 @@ and finding ways to improve the design is a very powerful way of keeping them aw
 
 You can think of this dojo like a Poka-Yoke training, understand and fix the root cause of the bugs.
 
-
-# Where to start?
+# Where do I start?
 
 ## Beginner
 Make sure you know of a few ways to design away bugs, by looking at a few examples
@@ -22,18 +21,13 @@ We've found some weaknesses for you. Pick your choice in instructions-intermedia
 ## Advanced
 If you'e already accustomed this thinking this way, have a look at instructions-advanced.md
 
-# Next steps
-A few pointers on typical weak design that is bug prone can be [found here](https://github.com/martinsson/BugsZero-Kata)
+## Next steps
+A list of bug-patterns, common, mostly unnecessary weaknesses in design.
 
-Go use this on some other code base.
+Go use this on some other code base!
+ 
+Give us some suggestions in the issues.
 
-
-The purpose is to experiment with design alternatives, so it is not necessary to refactor until perfection, and it is optional to use tests.
-The purpose of first explaining the problem in the design is to make sure that the new design is not just different but also adresses one or more specific problems.
-
-
-
-
-# Explanations of #BugsZero
+# Resources on #BugsZero, the general part, not so much information on design techniques
 [15 min intro](https://www.youtube.com/watch?v=dUjie_IYFY8) or go for the
 [full presentation](https://www.youtube.com/watch?v=gQR1NlkgLZU)
