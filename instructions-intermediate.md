@@ -1,4 +1,5 @@
 [Clone one of the codebases](https://github.com/martinsson/BugsZero-Kata/blob/master/codebases.md)
+The instructions below refer to any of the trivia codebases
 
 ## Procedure
 1. Identify a weakness in the design - now that's where we'e helping you
@@ -9,7 +10,7 @@ solution is better avoids thinking of **why** it is actually better.
 The purpose is to experiment with design alternatives, so it is not necessary to refactor until perfection, and it is optional to use tests.
 The purpose of first explaining the problem in the design is to make sure that the new design is not just different but also adresses one or more specific problems.
 
-## Existing bugs and weaknesses
+## Existing bugs and weaknesses (in trivia)
 
 * A Game could have less than two players - make sure it always has at least two.
   * Use a compiled language or a static type checker like flowtype
