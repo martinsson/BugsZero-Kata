@@ -1,4 +1,4 @@
-Clone [Trivia](https://github.com/caradojo/trivia) from the legacy code retreat is a good codebase to start this with. 
+[Clone one of the codebases](https://github.com/martinsson/BugsZero-Kata/blob/master/codebases.md)
 
 ## Procedure
 1. Identify a weakness in the design
