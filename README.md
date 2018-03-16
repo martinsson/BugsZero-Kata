@@ -1,12 +1,13 @@
 
 # BugsZero Kata
 
-Practice refactoring code to repel bugs. 
+Bugs are optional, they sneak into our code much thanks the design choices we do, or fail to do. Let's 
+try refactoring some existing code to make it more bug-repellent!
 
-Bugs get their way into the code because the design allows it. Bugs are not a fatality
-and finding ways to improve the design is a very powerful way of keeping them away from our code. 
+You'll practice reading code, looking for parts where it is likely that a developer would create a bug if he extended the code. Whenever you've found such a weakness in the design your challenge is to strengthen the design in order to make that kind of bug very unlikely, or even impossible!
 
-You can think of this dojo like a Poka-Yoke training, understand and fix the root cause of the bugs.
+**First** Identify a weakness in the design. **Then** State what the potential bug is before explaining your solution. This is important, simply saying another solution is better avoids thinking of why it is actually better.
+**Finally** Explain or refactor the code to show the new design. 
 
 # Where do I start?
 
