@@ -1,0 +1,35 @@
+#!/bin/bash
+# Work in progress
+
+function askLanguage() {
+  while true; do
+    read -p "Language (js, java) ?  " response
+    case "$response" in
+    "js")
+      selectedLanguage=javascript
+      referenceBranch="origin/js/v1"
+      break
+      ;;
+    "java")
+      selectedLanguage=$response
+      referenceBranch="origin/java/v1"
+      break
+      ;;
+    esac
+  done
+}
+
+function displayWarningIfNotMaster(){
+  currentBranchName="$(git name-rev --name-only HEAD)"
+  if [[ $currentBranchName != "master" ]] 
+  then
+    read -p "Are you sure you want to reinit everything? All your work will be lost! (y/N) : " response
+    case $response in
+      [Yy]* ) ;;
+      * ) exit;;
+    esac
+  fi
+}
+
+displayWarningIfNotMaster
+askLanguage
