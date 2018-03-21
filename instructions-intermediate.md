@@ -21,10 +21,10 @@ The purpose of first explaining the problem in the design is to make sure that t
   * or slightly easier, allow for 7 players or more
 * A player that get's into prison always stays there
   * Other than just fixing the bug, try to understand what's wrong with the design and fix the root cause 
-* The deck could run out of questions
-  * Make sure that can't happen (a deck with 1 billion questions is cheating :)
 * Introducing new categories of questions seems like tricky business.
   * Could you make sure all places have the "right" question and that the distribution 
-  is always correct?
+  is always correct (i.e. same number of each category, distance always the same between categories)?
+* The deck could run out of questions
+  * Make sure that can't happen (a deck with 1 billion questions is cheating :)
 * Similarly changing the board size greatly affects the questions distribution
   * Is there a design where it is guaranteed that the question category distribution stays the same
