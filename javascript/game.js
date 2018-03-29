@@ -14,6 +14,22 @@ module.exports = function () {
     var currentPlayer = 0;
     var isGettingOutOfPenaltyBox = false;
 
+    this.add = function (playerName) {
+        players.push(playerName);
+        places[this.howManyPlayers() - 1] = 0;
+        purses[this.howManyPlayers() - 1] = 0;
+        inPenaltyBox[this.howManyPlayers() - 1] = false;
+
+        console.log(playerName + " was added");
+        console.log("They are player number " + players.length);
+
+        return true;
+    };
+
+    this.howManyPlayers = function () {
+        return players.length;
+    };
+
     var didPlayerWin = function () {
         return !(purses[currentPlayer] == 6)
     };
@@ -54,22 +70,6 @@ module.exports = function () {
 
     this.isPlayable = function (howManyPlayers) {
         return howManyPlayers >= 2;
-    };
-
-    this.add = function (playerName) {
-        players.push(playerName);
-        places[this.howManyPlayers() - 1] = 0;
-        purses[this.howManyPlayers() - 1] = 0;
-        inPenaltyBox[this.howManyPlayers() - 1] = false;
-
-        console.log(playerName + " was added");
-        console.log("They are player number " + players.length);
-
-        return true;
-    };
-
-    this.howManyPlayers = function () {
-        return players.length;
     };
 
 
