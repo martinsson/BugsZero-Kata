@@ -1,0 +1,110 @@
+﻿False
+Chet was added
+They are player number 1
+Chet is the current player
+They have rolled a 1
+Chet's new location is 1
+The category is Science
+Science Question 0
+Chet is the current player
+They have rolled a 1
+Chet's new location is 2
+The category is Sports
+Sports Question 0
+Chet is the current player
+They have rolled a 1
+Chet's new location is 3
+The category is Rock
+Rock Question 0
+Chet is the current player
+They have rolled a 1
+Chet's new location is 4
+The category is Pop
+Pop Question 0
+Chet is the current player
+They have rolled a 1
+Chet's new location is 5
+The category is Science
+Science Question 1
+Chet is the current player
+They have rolled a 1
+Chet's new location is 6
+The category is Sports
+Sports Question 1
+Chet is the current player
+They have rolled a 1
+Chet's new location is 7
+The category is Rock
+Rock Question 1
+Chet is the current player
+They have rolled a 1
+Chet's new location is 8
+The category is Pop
+Pop Question 1
+Chet is the current player
+They have rolled a 1
+Chet's new location is 9
+The category is Science
+Science Question 2
+Chet is the current player
+They have rolled a 1
+Chet's new location is 10
+The category is Sports
+Sports Question 2
+Chet is the current player
+They have rolled a 1
+Chet's new location is 11
+The category is Rock
+Rock Question 2
+Chet is the current player
+They have rolled a 1
+Chet's new location is 0
+The category is Pop
+Pop Question 2
+Chet is the current player
+They have rolled a 1
+Chet's new location is 1
+The category is Science
+Science Question 3
+Chet is the current player
+They have rolled a 1
+Chet's new location is 2
+The category is Sports
+Sports Question 3
+Answer was correct!!!!
+Chet now has 1 Gold Coins.
+Question was incorrectly answered
+Chet was sent to the penalty box
+Chet is the current player
+They have rolled a 2
+Chet is not getting out of the penalty box
+Chet is the current player
+They have rolled a 11
+Chet is getting out of the penalty box
+Chet's new location is 1
+The category is Science
+Science Question 4
+Question was incorrectly answered
+Chet was sent to the penalty box
+Chet is the current player
+They have rolled a 2
+Chet is not getting out of the penalty box
+Chet is the current player
+They have rolled a 2
+Chet is not getting out of the penalty box
+Question was incorrectly answered
+Chet was sent to the penalty box
+Chet is the current player
+They have rolled a 1
+Chet is getting out of the penalty box
+Chet's new location is 2
+The category is Sports
+Sports Question 4
+Answer was correct!!!!
+Chet now has 2 Gold Coins.
+False
+Pat was added
+They are player number 2
+True
+Sue was added
+They are player number 3
