@@ -1,0 +1,13 @@
+{
+    "name": "johan/php",
+    "require-dev": {
+        "phpunit/phpunit": "^7.1"
+    },
+    "authors": [
+        {
+            "name": "Johan Martinsson",
+            "email": "j.martinsson@bee-buzziness.com"
+        }
+    ],
+    "require": {}
+}
