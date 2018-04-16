@@ -1,10 +1,10 @@
-var Game = require('./game');
+const Game = require('./game');
 
 module.exports = function gameRunner(randomInt) {
 
-    var notAWinner = false;
+    let notAWinner = false;
 
-    var game = new Game();
+    const game = new Game();
 
     game.add('Chet');
     game.add('Pat');
@@ -21,5 +21,5 @@ module.exports = function gameRunner(randomInt) {
         }
 
     } while (notAWinner);
-}
+};
 
