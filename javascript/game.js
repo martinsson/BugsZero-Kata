@@ -57,8 +57,6 @@ class Game {
             return 'Science';
         if (this.places[this.currentPlayer] == 9)
             return 'Science';
-        if (this.places[this.currentPlayer] == 2)
-            return 'Sports';
         if (this.places[this.currentPlayer] == 6)
             return 'Sports';
         if (this.places[this.currentPlayer] == 10)
@@ -118,12 +116,29 @@ class Game {
         this.askQuestion();
     }
 
+    _doAnswerCorrectly() {
+        console.log('Answer was correct!!!!');
+        this.currentPlayer += 1;
+        if (this.currentPlayer == this.players.length)
+            this.currentPlayer = 0;
+
+        this.purses[this.currentPlayer] += 1;
+        console.log(this.players[this.currentPlayer] + " now has " +
+            this.purses[this.currentPlayer] + " Gold Coins.");
+
+        var winner = this.didPlayerWin();
+
+        return winner;
+    }
+
     wasCorrectlyAnswered() {
         if (this.inPenaltyBox[this.currentPlayer]) {
             if (this.isGettingOutOfPenaltyBox) {
                 return this._doAnswerCorrectly();
             } else {
-                this._changePlayer();
+                this.currentPlayer += 1;
+                if (this.currentPlayer == this.players.length)
+                    this.currentPlayer = 0;
                 return true;
             }
 
@@ -139,28 +154,11 @@ class Game {
         console.log(this.players[this.currentPlayer] + " was sent to the penalty box");
         this.inPenaltyBox[this.currentPlayer] = true;
 
-        this._changePlayer();
-        return true;
-    };
-
-    _changePlayer() {
         this.currentPlayer += 1;
         if (this.currentPlayer == this.players.length)
             this.currentPlayer = 0;
-    }
-
-    _doAnswerCorrectly() {
-        console.log('Answer was correct!!!!');
-
-        this.purses[this.currentPlayer] += 1;
-        console.log(this.players[this.currentPlayer] + " now has " +
-            this.purses[this.currentPlayer] + " Gold Coins.");
-
-        var winner = this.didPlayerWin();
-
-        this._changePlayer();
-        return winner;
-    }
+        return true;
+    };
 
 }
 exports = typeof window !== "undefined" && window !== null ? window : global;
