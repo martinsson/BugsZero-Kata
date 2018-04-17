@@ -21,6 +21,8 @@ The purpose of first explaining the problem in the design is to make sure that t
   * or slightly easier, allow for 7 players or more
 * A player that get's into prison always stays there
   * Other than just fixing the bug, try to understand what's wrong with the design and fix the root cause 
+* JS only: there's a bug with the categories, sometimes it's Rock where it should've been Sports. 
+	* Other than fixing the bug, try to understand what's wrong with the design and fix the root cause.
 * Introducing new categories of questions seems like tricky business.
   * Could you make sure all places have the "right" question and that the distribution 
   is always correct (i.e. same number of each category, distance always the same between categories)?
