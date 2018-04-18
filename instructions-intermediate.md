@@ -28,5 +28,5 @@ The purpose of first explaining the problem in the design is to make sure that t
   is always correct (i.e. same number of each category, distance always the same between categories)?
 * The deck could run out of questions
   * Make sure that can't happen (a deck with 1 billion questions is cheating :)
-* Similarly changing the board size greatly affects the questions distribution
+* Similarly changing the board size greatly affects the questions distribution. i.e. how do we ensure that there are as many of each category and that they repeat in a cyclic way?
   * Is there a design where it is guaranteed that the question category distribution stays the same
