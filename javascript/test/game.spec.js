@@ -1,5 +1,5 @@
-const Game = require('./game.js');
-const gameRunner = require('./game-runner');
+const Game = require('../src/game.js');
+const gameRunner = require('../src/game-runner');
 
 const expect = require('chai').expect;
 const approvals = require('approvals');
