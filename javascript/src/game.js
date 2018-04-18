@@ -57,6 +57,8 @@ class Game {
             return 'Science';
         if (this.places[this.currentPlayer] == 9)
             return 'Science';
+        if (this.places[this.currentPlayer] == 2)
+            return 'Sports';
         if (this.places[this.currentPlayer] == 6)
             return 'Sports';
         if (this.places[this.currentPlayer] == 10)

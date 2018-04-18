@@ -6,8 +6,10 @@ try refactoring some existing code to make it more bug-repellent!
 
 You'll practice reading code, looking for parts where it is likely that developers would create a bug if they extended the code. Whenever you've found such a weakness in the design your challenge is to strengthen the design in order to make that kind of bug very unlikely, or even impossible!
 
-**First** Identify a weakness in the design. **Then** State what the potential bug is before explaining your solution. This is important, simply saying another solution is better avoids thinking of why it is actually better.
+**First** Identify a bug or a weakness in the design. **Then** Explain what feature could cause a bug. Or how the design contributed to its introduction. This is important, simply saying another solution is better avoids thinking of why it is actually better.
 **Finally** Explain or refactor the code to show the new design. 
+
+Prefer small changes in the design, for instance before applying a design pattern try simpler things, like maybe ExtractConstant or replace conditional logic with a map/dictionnary.
 
 # Where do I start?
 

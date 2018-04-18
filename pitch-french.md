@@ -8,6 +8,8 @@ En comprenant mieux puis en corrigeant la cause racine des bugs, nous tranformon
 
 Le geste à répéter :
 1. Identifier soit une faiblesse du design susceptible de causer un bug lorsque l'on étend le code, soit un bug existant.
-2. Expliquer comment le design actuel a contribué à l'introduction du bug  ou comment il risque d'y contribuer dans le futur.
+2. Expliquer comment le design actuel a contribué à l'introduction du bug ou quelle nouvelle fonctionnalité pourrait introduire un bug. 
 3. Trouvez un design qui rend impossible ce bug ou du moins qui le rend peu probable.
+
+Il est essentiel de ne pas se contenter de dire qu'un le nouveau design est "mieux", cela voudrait dire qu'on ne maitrise bien ce qu'il apporte dans un contexte précis.
 

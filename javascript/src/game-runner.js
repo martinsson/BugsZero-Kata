@@ -3,7 +3,7 @@ const Game = require('./game');
 module.exports = function gameRunner(randomInt) {
 
     // a simulator of a game
-    
+
     let notAWinner = false;
 
     const game = new Game();
