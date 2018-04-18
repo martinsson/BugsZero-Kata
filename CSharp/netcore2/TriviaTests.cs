@@ -76,10 +76,14 @@ namespace Trivia
 //                        new DiffReporter(
 //                            new []
 //                            {
+                                // For linux
 //                                new VsCodeDiffProgram(new []
 //                                {
 //                                    "/usr/bin/code"
 //                                })
+                
+                                // For Windows
+//                                new VsCodeDiffProgram(), 
 //                            }))
                 ;
         }

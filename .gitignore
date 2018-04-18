@@ -1,1 +1,7 @@
 .idea
+
+CSharp/netcore2/bin/
+
+CSharp/netcore2/obj/
+
+CSharp/packages/
