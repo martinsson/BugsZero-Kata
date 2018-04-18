@@ -3,6 +3,8 @@ using System.IO;
 using System.Text;
 using Xunit;
 using Assent;
+using Assent.Reporters;
+using Assent.Reporters.DiffPrograms;
 
 namespace Trivia
 {
@@ -55,7 +57,31 @@ namespace Trivia
             aGame.Roll(1);
             aGame.WasCorrectlyAnswered();
 
-            this.Assent(output.ToString());
+            var configuration = BuildConfiguration();
+            this.Assent(output.ToString(), configuration);
+        }
+
+        private static Configuration BuildConfiguration()
+        {
+            return 
+                new Configuration()
+                
+            // Uncomment this block if an exception 
+            // « Could not find a diff program to use »
+            // is thrown and if you have VsCode installed.
+            // Otherwise, use other DiffProgram with its full path
+            // as parameter.
+            // See  https://github.com/droyad/Assent/wiki/Reporting
+//                    .UsingReporter(
+//                        new DiffReporter(
+//                            new []
+//                            {
+//                                new VsCodeDiffProgram(new []
+//                                {
+//                                    "/usr/bin/code"
+//                                })
+//                            }))
+                ;
         }
     }
 }
