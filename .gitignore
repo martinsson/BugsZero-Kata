@@ -1,1 +1,13 @@
 .idea
+
+CSharp/netcore2/bin/
+
+CSharp/netcore2/obj/
+
+CSharp/packages/
+
+CSharp/basic/packages/
+
+CSharp/basic/Trivia/bin/
+
+CSharp/basic/Trivia/obj/

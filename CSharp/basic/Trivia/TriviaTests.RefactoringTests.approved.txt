@@ -1,6 +1,10 @@
 ﻿False
-Chet was added
+Chet was Added
 They are player number 1
+Pat was Added
+They are player number 2
+Sue was Added
+They are player number 3
 Chet is the current player
 They have rolled a 1
 Chet's new location is 1
@@ -71,40 +75,39 @@ They have rolled a 1
 Chet's new location is 2
 The category is Sports
 Sports Question 3
-Answer was correct!!!!
+Answer was corrent!!!!
 Chet now has 1 Gold Coins.
 Question was incorrectly answered
-Chet was sent to the penalty box
-Chet is the current player
+Pat was sent to the penalty box
+Sue is the current player
 They have rolled a 2
-Chet is not getting out of the penalty box
-Chet is the current player
-They have rolled a 11
-Chet is getting out of the penalty box
-Chet's new location is 1
-The category is Science
-Science Question 4
-Question was incorrectly answered
-Chet was sent to the penalty box
-Chet is the current player
-They have rolled a 2
-Chet is not getting out of the penalty box
-Chet is the current player
-They have rolled a 2
-Chet is not getting out of the penalty box
-Question was incorrectly answered
-Chet was sent to the penalty box
-Chet is the current player
-They have rolled a 1
-Chet is getting out of the penalty box
-Chet's new location is 2
+Sue's new location is 2
 The category is Sports
 Sports Question 4
+Sue is the current player
+They have rolled a 6
+Sue's new location is 8
+The category is Pop
+Pop Question 3
+Question was incorrectly answered
+Sue was sent to the penalty box
+Chet is the current player
+They have rolled a 2
+Chet's new location is 4
+The category is Pop
+Pop Question 4
+Chet is the current player
+They have rolled a 2
+Chet's new location is 6
+The category is Sports
+Sports Question 5
+Question was incorrectly answered
+Chet was sent to the penalty box
+Sue is the current player
+They have rolled a 1
+Sue is getting out of the penalty box
+Sue's new location is 9
+The category is Science
+Science Question 4
 Answer was correct!!!!
-Chet now has 2 Gold Coins.
-False
-Pat was added
-They are player number 2
-True
-Sue was added
-They are player number 3
+Sue now has 1 Gold Coins.
