@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E35A89B32089B036009F8C7E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35A89B22089B036009F8C7E /* main.swift */; };
+		E35A89BA2089B0F1009F8C7E /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35A89B92089B0F1009F8C7E /* Game.swift */; };
+		E35A89C02089B8BC009F8C7E /* GameRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35A89BF2089B8BC009F8C7E /* GameRunner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,8 @@
 /* Begin PBXFileReference section */
 		E35A89AF2089B036009F8C7E /* bugzero-kata */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "bugzero-kata"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E35A89B22089B036009F8C7E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		E35A89B92089B0F1009F8C7E /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		E35A89BF2089B8BC009F8C7E /* GameRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRunner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 			isa = PBXGroup;
 			children = (
 				E35A89B22089B036009F8C7E /* main.swift */,
+				E35A89B92089B0F1009F8C7E /* Game.swift */,
+				E35A89BF2089B8BC009F8C7E /* GameRunner.swift */,
 			);
 			path = "bugzero-kata";
 			sourceTree = "<group>";
@@ -94,6 +100,7 @@
 				TargetAttributes = {
 					E35A89AE2089B036009F8C7E = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0930;
 					};
 				};
 			};
@@ -120,6 +127,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E35A89B32089B036009F8C7E /* main.swift in Sources */,
+				E35A89BA2089B0F1009F8C7E /* Game.swift in Sources */,
+				E35A89C02089B8BC009F8C7E /* GameRunner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,8 +251,15 @@
 		E35A89B72089B036009F8C7E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -251,7 +267,13 @@
 		E35A89B82089B036009F8C7E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
