@@ -1,4 +1,3 @@
-
 class Game {
 
     constructor() {
@@ -77,14 +76,18 @@ class Game {
 
 
     askQuestion() {
-        if (this.currentCategory() == 'Pop')
+        if (this.currentCategory() == 'Pop') {
             console.log(this.popQuestions.shift());
-        if (this.currentCategory() == 'Science')
+        }
+        if (this.currentCategory() == 'Science') {
             console.log(this.scienceQuestions.shift());
-        if (this.currentCategory() == 'Sports')
+        }
+        if (this.currentCategory() == 'Sports') {
             console.log(this.sportsQuestions.shift());
-        if (this.currentCategory() == 'Rock')
+        }
+        if (this.currentCategory() == 'Rock') {
             console.log(this.rockQuestions.shift());
+        }
     };
 
     roll(roll) {
@@ -163,6 +166,7 @@ class Game {
     };
 
 }
+
 exports = typeof window !== "undefined" && window !== null ? window : global;
 
 module.exports = Game
