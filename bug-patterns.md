@@ -1,6 +1,11 @@
 # Bug patterns
 Classification of typical design problems that cause (unnecessary) bugs and some suggested solutions.
 
+Most of theese patterns boil down to [Coupling without Cohesion](http://wiki.c2.com/?CouplingAndCohesion)
+
+## Duplication
+If one occurence of the duplication changes, the others have to change as well. Risk is increased with the *distance* between the duplicated parts.
+
 ## Use of primitives 
 Allows for
 * logic potentially duplicated
