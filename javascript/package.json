@@ -4,7 +4,7 @@
   "description": "Test with node.js =====================",
   "main": "game-runner.js",
   "scripts": {
-    "test": "mocha *.spec.js"
+    "test": "mocha test/**/*.spec.js"
   },
   "author": "",
   "license": "ISC",
