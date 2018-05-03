@@ -1,5 +1,16 @@
 class Game {
 
+    rockQuestions: any[];
+    isGettingOutOfPenaltyBox: boolean;
+    currentPlayer: number;
+    sportsQuestions: any[];
+    scienceQuestions: any[];
+    inPenaltyBox: any[];
+    popQuestions: any[];
+    purses: any[];
+    places: any[];
+    players: any[];
+
     constructor() {
         this.players = new Array();
         this.places = new Array(6);
