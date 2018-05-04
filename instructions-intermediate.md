@@ -20,7 +20,7 @@ The purpose of first explaining the problem in the design is to make sure that t
   * or slightly easier, allow for 7 players or more
 * A player that get's into prison always stays there
   * Other than just fixing the bug, try to understand what's wrong with the design and fix the root cause 
-* JS, Java and Swift only: there's a bug with the money attribution, coins are added to the wrong player. Try to understand what made this bug likely and fix the design so that it becomes very unlikely.
+* JS, Java, Swift and C# Core only: there's a bug with the money attribution, coins are added to the wrong player. Try to understand what made this bug likely and fix the design so that it becomes very unlikely.
 * Introducing new categories of questions seems like tricky business.
   * Could you make sure all places have the "right" question and that the distribution 
   is always correct (i.e. same number of each category, distance always the same between categories)?
