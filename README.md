@@ -27,6 +27,9 @@ We've found some weaknesses for you. Pick your choice in [instructions-intermedi
 ## Advanced
 If you'e already accustomed this thinking this way, have a look at [instructions-advanced.md](https://github.com/martinsson/BugsZero-Kata/blob/master/instructions-advanced.md)
 
+## Solutions
+You can look at the proposed solutions. They come in the form of branches prefixed by *solutions_*. They come in various languages and are only addressing a single problem at once. Why? Because SRP :)
+
 ## Next steps
 Go use this on some other code base, like your project!
  
