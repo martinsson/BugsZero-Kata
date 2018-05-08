@@ -41,3 +41,6 @@ Some [slides specifically on code design](http://www.changit.fr/bug-free-by-desi
 The general part
 [15 min intro](https://www.youtube.com/watch?v=dUjie_IYFY8) or go for the
 [full presentation](https://www.youtube.com/watch?v=gQR1NlkgLZU)
+
+## Blog posts
+[Bug teams](http://agileotter.blogspot.fr/2014/01/bug-teams-well-meaning-foolishness.html)

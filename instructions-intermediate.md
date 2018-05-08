@@ -1,8 +1,7 @@
-Lets use the trivia code base. This repository comes packaged with
-totally tested versions, using the Golden Master technique. Pick the language of your choice in 
+This repository comes packaged with code that is totally tested, using the Golden Master technique. Pick the language of your choice in 
 this repository or contribute another one. In case there is none
 you're comfortable with you can always try to do this without tests
-using any of the [available languages](https://github.com/caradojo/trivia)
+using any of the [available languages](https://github.com/caradojo/trivia). Beware that it is not identical as we've modified to the code to remove some of the noice that wasn't relevant to sources of bugs.
 
 ## Procedure
 1. Identify a weakness in the design - now that's where we'e helping you
@@ -21,7 +20,7 @@ The purpose of first explaining the problem in the design is to make sure that t
   * or slightly easier, allow for 7 players or more
 * A player that get's into prison always stays there
   * Other than just fixing the bug, try to understand what's wrong with the design and fix the root cause 
-* JS only: there's a bug with the money attribution, coins are added to the wrong player. Try to understand what made this bug likely and fix the design so that it becomes very unlikely.
+* JS, Java and Swift only: there's a bug with the money attribution, coins are added to the wrong player. Try to understand what made this bug likely and fix the design so that it becomes very unlikely.
 * Introducing new categories of questions seems like tricky business.
   * Could you make sure all places have the "right" question and that the distribution 
   is always correct (i.e. same number of each category, distance always the same between categories)?
