@@ -30,6 +30,8 @@ If you'e already accustomed this thinking this way, have a look at [instructions
 ## Solutions
 You can look at the proposed solutions. They come in the form of branches prefixed by *solutions_*. They come in various languages and are only addressing a single problem at once. Why? Because SRP :)
 
+* [Make it easier to introduce or change categories](https://github.com/martinsson/BugsZero-Kata/pull/12/files). i.e. more cohesion where there is coupling 
+
 ## Next steps
 Go use this on some other code base, like your project!
  
