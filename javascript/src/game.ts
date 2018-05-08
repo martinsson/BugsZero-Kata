@@ -11,6 +11,8 @@ class Game {
     places: any[];
     players: any[];
 
+    private questionsDeck;
+
     constructor() {
         this.players = new Array();
         this.places = new Array(6);
@@ -31,6 +33,12 @@ class Game {
             this.sportsQuestions.push("Sports Question " + i);
             this.rockQuestions.push(this.createRockQuestion(i));
         }
+        this.questionsDeck = {
+            Pop: this.popQuestions,
+            Science: this.scienceQuestions,
+            Sports: this.sportsQuestions,
+            Rock: this.rockQuestions,
+        };
 
     }
 
@@ -54,10 +62,28 @@ class Game {
         return !(this.purses[this.currentPlayer] == 6)
     };
 
+    /**
+     * This code expresses the business rules that categories
+     *   - are evenly distributed over the board
+     *   - are equally frequent
+     * The fact that currentCategory() and askQuestion() use the same data - questionsDeck
+     * instead of a random collection of if-statements makes adds the necessary cohesion
+     * for introducing a new category for instance.
+     *
+     * A key aspect is the use of a data structure (questionsDeck) that models the Domain well,
+     * indeed often when we replace conditional logic with a data-structure (List, Set, Map, Maybe)
+     * we gain cohesion
+     */
     currentCategory() {
-        const categories = ['Pop', 'Science', 'Sports', 'Rock']
-        let categoryIndex = this.places[this.currentPlayer] % categories.length;
-        return categories[categoryIndex]
+        const categoryNames = Object.keys(this.questionsDeck);
+        let categoryIndex = this.places[this.currentPlayer] % categoryNames.length;
+        return categoryNames[categoryIndex]
+    };
+
+    askQuestion() {
+        let currentCategory = this.currentCategory();
+        let questions = this.questionsDeck[currentCategory];
+        console.log(questions.shift());
     };
 
     createRockQuestion(index) {
@@ -67,22 +93,6 @@ class Game {
 
     isPlayable(howManyPlayers) {
         return howManyPlayers >= 2;
-    };
-
-
-    askQuestion() {
-        if (this.currentCategory() == 'Pop') {
-            console.log(this.popQuestions.shift());
-        }
-        if (this.currentCategory() == 'Science') {
-            console.log(this.scienceQuestions.shift());
-        }
-        if (this.currentCategory() == 'Sports') {
-            console.log(this.sportsQuestions.shift());
-        }
-        if (this.currentCategory() == 'Rock') {
-            console.log(this.rockQuestions.shift());
-        }
     };
 
     roll(roll) {
