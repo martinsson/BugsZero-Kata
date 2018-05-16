@@ -28,7 +28,7 @@ We've found some weaknesses for you. Pick your choice in [instructions-intermedi
 If you'e already accustomed this thinking this way, have a look at [instructions-advanced.md](https://github.com/martinsson/BugsZero-Kata/blob/master/instructions-advanced.md)
 
 ## Solutions
-Have a look at the [various solutions](https://github.com/martinsson/BugsZero-Kata/blob/master/solutions.md)
+After doing your version, have a look at the [various solutions](https://github.com/martinsson/BugsZero-Kata/blob/master/solutions.md) in the form of merge-requests. It is easy to see what the change was using the diff-view. They are meant to be (on of) the best trade-offs for the given problem. There's always trade-offs, but if you find a better or simply good alternative, please fork and merge-request and we'll reference it.
 
 ## Next steps
 Go use this on some other code base, like your project!
@@ -44,3 +44,6 @@ The general part
 
 ## Blog posts
 [Bug teams](http://agileotter.blogspot.fr/2014/01/bug-teams-well-meaning-foolishness.html)
+
+## Contribute
+Contributions of all forms are welcome. Submit another language by fork/merge-request. If you're missing something or hava a question please create an issue.

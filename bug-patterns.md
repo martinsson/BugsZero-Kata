@@ -3,6 +3,8 @@ Classification of typical design problems that cause (unnecessary) bugs and some
 
 Most of theese patterns boil down to [Coupling without Cohesion](http://wiki.c2.com/?CouplingAndCohesion)
 
+A few of these are developed in greater detail, like [Hidden testable code](https://medium.com/@johan_alps/bug-pattern-hidden-testable-code-eb7d261f9f05) and [Use of indices](https://medium.com/@johan_alps/bug-generator-use-of-indices-83059fa8f041) 
+
 ## Duplication
 If one occurence of the duplication changes, the others have to change as well. Risk is increased with the *distance* between the duplicated parts.
 
@@ -37,6 +39,9 @@ Code that would be easy to test is hidden in between calls to difficult-to-test 
 * ex: validation of instance parameters in function (should be in constructor)
 * any validation that is **not** in the entry point of an application (rest call, ui-form, command-line, message bus, configuration). Database could be an entry point if data comes from other apps.
 * any duplicated validation down the callstack
+
+## Null flag
+Returning null as a special value provides no guarantee that the  client code will handle that case. It is likely to end up in a runtime exception. Instead use a [Null-object-pattern](https://en.wikipedia.org/wiki/Null_object_pattern) so the client code never has to worry, or return an Optional/Maybe so that the client code is aware of the possibility
 
 ## Exception handling
 When you look closely much of exception handling is accidental, not essential.
