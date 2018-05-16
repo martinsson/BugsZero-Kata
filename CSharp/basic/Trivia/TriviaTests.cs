@@ -72,10 +72,10 @@ namespace Trivia
             // Otherwise, use other DiffProgram with its full path
             // as parameter.
             // See  https://github.com/droyad/Assent/wiki/Reporting
-                    .UsingReporter(
-                        new DiffReporter(
-                            new []
-                            {
+//                    .UsingReporter(
+//                        new DiffReporter(
+//                            new []
+//                            {
 //                                 For linux
 //                                new VsCodeDiffProgram(new []
 //                                {
@@ -83,8 +83,8 @@ namespace Trivia
 //                                })
                 
 //                                 For Windows
-                                new VsCodeDiffProgram(), 
-                            }))
+//                                new VsCodeDiffProgram(), 
+//                            }))
                 ;
         }
     }
