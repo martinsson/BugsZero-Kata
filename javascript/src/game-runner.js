@@ -1,4 +1,4 @@
-const Game = require('./game');
+const Game = require('./game').Game;
 
 module.exports = function gameRunner(randomInt) {
 

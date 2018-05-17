@@ -1,4 +1,4 @@
-class Game {
+export class Game {
 
     rockQuestions: any[];
     isGettingOutOfPenaltyBox: boolean;
@@ -177,7 +177,3 @@ class Game {
     };
 
 }
-
-exports = typeof window !== "undefined" && window !== null ? window : global;
-
-module.exports = Game
