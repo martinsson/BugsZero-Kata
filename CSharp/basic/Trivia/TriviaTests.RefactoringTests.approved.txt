@@ -110,4 +110,4 @@ Sue's new location is 9
 The category is Science
 Science Question 4
 Answer was correct!!!!
-Sue now has 1 Gold Coins.
+Chet now has 2 Gold Coins.

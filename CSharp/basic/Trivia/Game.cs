@@ -152,6 +152,8 @@ namespace Trivia
                 if (isGettingOutOfPenaltyBox)
                 {
                     Console.WriteLine("Answer was correct!!!!");
+                    currentPlayer++;
+                    if (currentPlayer == players.Count) currentPlayer = 0;
                     purses[currentPlayer]++;
                     Console.WriteLine(players[currentPlayer]
                             + " now has "
@@ -159,9 +161,7 @@ namespace Trivia
                             + " Gold Coins.");
 
                     bool winner = DidPlayerWin();
-                    currentPlayer++;
-                    if (currentPlayer == players.Count) currentPlayer = 0;
-
+                    
                     return winner;
                 }
                 else
