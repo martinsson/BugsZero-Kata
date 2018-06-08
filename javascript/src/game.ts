@@ -132,25 +132,21 @@ export class Game {
         this.askQuestion();
     }
 
-    _doAnswerCorrectly() {
-        console.log('Answer was correct!!!!');
-        this.currentPlayer += 1;
-        if (this.currentPlayer == this.players.length)
-            this.currentPlayer = 0;
-
-        this.purses[this.currentPlayer] += 1;
-        console.log(this.players[this.currentPlayer] + " now has " +
-            this.purses[this.currentPlayer] + " Gold Coins.");
-
-        var winner = this.didPlayerWin();
-
-        return winner;
-    }
-
     wasCorrectlyAnswered() {
         if (this.inPenaltyBox[this.currentPlayer]) {
             if (this.isGettingOutOfPenaltyBox) {
-                return this._doAnswerCorrectly();
+                console.log('Answer was correct!!!!');
+                this.currentPlayer += 1;
+                if (this.currentPlayer == this.players.length)
+                    this.currentPlayer = 0;
+
+                this.purses[this.currentPlayer] += 1;
+                console.log(this.players[this.currentPlayer] + " now has " +
+                    this.purses[this.currentPlayer] + " Gold Coins.");
+
+                var winner = this.didPlayerWin();
+
+                return winner;
             } else {
                 this.currentPlayer += 1;
                 if (this.currentPlayer == this.players.length)
@@ -160,8 +156,18 @@ export class Game {
 
 
         } else {
+            console.log('Answer was correct!!!!');
 
-            return this._doAnswerCorrectly();
+            this.currentPlayer += 1;
+            if (this.currentPlayer == this.players.length)
+                this.currentPlayer = 0;
+            this.purses[this.currentPlayer] += 1;
+            console.log(this.players[this.currentPlayer] + " now has " +
+                this.purses[this.currentPlayer] + " Gold Coins.");
+
+            var winner = this.didPlayerWin();
+
+            return winner;
         }
     };
 
