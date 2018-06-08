@@ -1,6 +1,6 @@
-const Game = require('./game').Game;
+import {Game} from "./game";
 
-module.exports = function gameRunner(randomInt) {
+export function gameRunner(randomInt) {
 
     // a simulator of a game
 

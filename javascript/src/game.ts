@@ -76,15 +76,6 @@ export class Game {
         return 'Rock';
     };
 
-    createRockQuestion(index) {
-        return "Rock Question " + index;
-    };
-
-
-    isPlayable(howManyPlayers) {
-        return howManyPlayers >= 2;
-    };
-
 
     askQuestion() {
         if (this.currentCategory() == 'Pop') {
@@ -99,6 +90,15 @@ export class Game {
         if (this.currentCategory() == 'Rock') {
             console.log(this.rockQuestions.shift());
         }
+    };
+
+    createRockQuestion(index) {
+        return "Rock Question " + index;
+    };
+
+
+    isPlayable(howManyPlayers) {
+        return howManyPlayers >= 2;
     };
 
     roll(roll) {
