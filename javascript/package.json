@@ -4,7 +4,8 @@
   "description": "Test with node.js =====================",
   "main": "game-runner.js",
   "scripts": {
-    "test": "mocha test/**/*.spec.js"
+    "compile": "tsc -w",
+    "test": "mocha -w -r ts-node/register test/**/*.spec.?s"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +15,8 @@
     "mocha": "^3.2.0"
   },
   "dependencies": {
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.1.6"
   }
 }
