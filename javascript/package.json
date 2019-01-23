@@ -5,14 +5,14 @@
   "main": "game-runner.js",
   "scripts": {
     "compile": "tsc -w",
-    "test": "mocha -w -r ts-node/register test/**/*.spec.?s"
+    "test": "mocha -w -r ts-node/register test/**/*.spec.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "approvals": "^2.1.2",
     "chai": "^3.5.0",
-    "mocha": "^3.2.0"
+    "mocha": "^5.2.0"
   },
   "dependencies": {
     "lodash": "^4.17.4",
