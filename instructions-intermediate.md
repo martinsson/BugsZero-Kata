@@ -18,9 +18,9 @@ The purpose of first explaining the problem in the design is to make sure that t
   * Use a compiled language or a static type checker like flowtype
 * Someone could try to create a game with 7 players, make sure that's impossible.
   * or slightly easier, allow for 7 players or more
-* A player that get's into prison always stays there
+* Existing BUG: A player that get's into prison always stays there
   * Other than just fixing the bug, try to understand what's wrong with the design and fix the root cause 
-* JS, Java, Swift and C# only: there's a bug with the money attribution, coins are added to the wrong player. Try to understand what made this bug likely and fix the design so that it becomes very unlikely.
+* Existing BUG: coins are added to the wrong player. Try to understand what made this bug likely and fix the design so that it becomes very unlikely.
 * Introducing new categories of questions seems like tricky business.
   * Could you make sure all places have the "right" question and that the distribution 
   is always correct (i.e. same number of each category, distance always the same between categories)?
