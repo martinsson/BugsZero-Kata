@@ -9,5 +9,8 @@
             "email": "j.martinsson@bee-buzziness.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-4": {"Game\\": "src"}
+    }
 }

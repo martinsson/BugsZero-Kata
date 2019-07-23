@@ -1,6 +1,5 @@
 <?php
-
-//include __DIR__ . '/Game.php';
+namespace Game;
 
 class GameRunner {
 
@@ -31,4 +30,4 @@ class GameRunner {
 }
 
 
-  
+
