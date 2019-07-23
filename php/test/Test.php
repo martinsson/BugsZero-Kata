@@ -1,5 +1,6 @@
 <?php
 
+use Game\GameRunner;
 use PHPUnit\Framework\TestCase;
 
 class GameTest extends TestCase
@@ -17,7 +18,7 @@ class GameTest extends TestCase
         ob_end_clean();
 
         $expected = file_get_contents('approved.txt');
-        $this->assertEquals(expected, actual);
+        $this->assertEquals($expected, $actual);
 
     }
 }
