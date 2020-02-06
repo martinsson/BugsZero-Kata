@@ -19,7 +19,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm install
       working-directory: ./javascript
-    - run: npm test:ci
+    - run: npm run test:ci
       working-directory: ./javascript
       env:
         CI: true
