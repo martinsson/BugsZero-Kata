@@ -1,6 +1,6 @@
 
 # BugsZero Kata
-
+![Image logo](./bugs-zero-image.jpg)
 Bugs are optional, they sneak into our code much thanks the design choices we do, or fail to do. Let's 
 try refactoring some existing code to make it more bug-repellent!
 
@@ -13,32 +13,26 @@ Prefer small changes in the design, for instance before applying a design patter
 
 # Where do I start?
 
-## Beginner
-Make sure you know of a few ways to design away bugs, by looking at a few examples
-* [5 steps to mistake-proof software design](http://mozaicworks.com/blog/5-steps-to-mistake-proof-software-design/)
-* [It's not a configuration issue. It’s a design issue](http://martinsson-johan.blogspot.fr/2016/06/its-not-configuration-issue-its-design.html)
+**Instructions and hints**
+: We've found some weaknesses for you. Pick your choice in [instructions-intermediate.md](https://github.com/martinsson/BugsZero-Kata/blob/master/instructions-intermediate.md)
 
-Have a look at the long list of common [bug-patterns](https://github.com/martinsson/BugsZero-Kata/blob/master/bug-patterns.md), mostly unnecessary weaknesses in design.
-Beware, those are a bit terse, most patterns need to be explained. 
-
-## Intermediate
-We've found some weaknesses for you. Pick your choice in [instructions-intermediate.md](https://github.com/martinsson/BugsZero-Kata/blob/master/instructions-intermediate.md)
-
-## Advanced
-If you'e already accustomed this thinking this way, have a look at [instructions-advanced.md](https://github.com/martinsson/BugsZero-Kata/blob/master/instructions-advanced.md)
 
 ## Solutions
 After doing your version, have a look at the [various solutions](https://github.com/martinsson/BugsZero-Kata/blob/master/solutions.md) in the form of merge-requests. It is easy to see what the change was using the diff-view. They are meant to be (one of) the best trade-offs for the given problem. There's always trade-offs, but if you find a better or simply good alternative, please fork and merge-request and we'll reference it.
 
-## Next steps
-Go use this on some other code base, like your project!
- 
-Give us some suggestions in the issues.
+## Bug Patterns
+Have a look at the long list of common [bug-patterns](https://github.com/martinsson/BugsZero-Kata/blob/master/bug-patterns.md), mostly unnecessary weaknesses in design.
 
 # Resources on #BugsZero
-Some [slides specifically on code design](http://www.changit.fr/bug-free-by-design/)
+The presentation specifically on code design [Bug Free, by Design](https://vimeo.com/275530228)
+with [slides](http://www.changit.fr/bug-free-by-design/)
 
-The general part
+Make sure you know of a few ways to design away bugs, by looking at a few examples
+* [5 steps to mistake-proof software design](http://mozaicworks.com/blog/5-steps-to-mistake-proof-software-design/)
+* [It's not a configuration issue. It’s a design issue](http://martinsson-johan.blogspot.fr/2016/06/its-not-configuration-issue-its-design.html)
+
+
+By Arlo Belshee
 [15 min intro](https://www.youtube.com/watch?v=dUjie_IYFY8) or go for the
 [full presentation](https://www.youtube.com/watch?v=gQR1NlkgLZU)
 

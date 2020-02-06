@@ -1,9 +1,11 @@
 # Bug patterns
 Classification of typical design problems that cause (unnecessary) bugs and some suggested solutions.
 
-Most of theese patterns boil down to [Coupling without Cohesion](http://wiki.c2.com/?CouplingAndCohesion)
+Most of these patterns boil down to [Coupling without Cohesion](http://wiki.c2.com/?CouplingAndCohesion)
 
-A few of these are developed in greater detail, like [Hidden testable code](https://medium.com/@johan_alps/bug-pattern-hidden-testable-code-eb7d261f9f05) and [Use of indices](https://medium.com/@johan_alps/bug-generator-use-of-indices-83059fa8f041) 
+A few of these are developed in greater detail, like [Hidden testable code](https://medium.com/@johan_alps/bug-pattern-hidden-testable-code-eb7d261f9f05) 
+, [Use of indices](https://medium.com/@johan_alps/bug-generator-use-of-indices-83059fa8f041)
+and [Non constrained construction](https://martinsson-johan.blogspot.com/2018/05/bug-generator-non-constrained.html) 
 
 ## Duplication
 If one occurence of the duplication changes, the others have to change as well. Risk is increased with the *distance* between the duplicated parts.
