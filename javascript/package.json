@@ -5,6 +5,7 @@
   "main": "game-runner.js",
   "scripts": {
     "compile": "tsc -w",
+    "test:ci": "mocha -r ts-node/register test/**/*.spec.js",
     "test": "mocha -w -r ts-node/register test/**/*.spec.js"
   },
   "author": "",
