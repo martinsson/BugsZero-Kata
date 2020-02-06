@@ -14,11 +14,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
+      working-directory: ./javascript
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: cd javascript
     - run: npm install
+      working-directory: ./javascript
     - run: npm test
+      working-directory: ./javascript
       env:
         CI: true
