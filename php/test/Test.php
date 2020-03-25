@@ -17,7 +17,7 @@ class GameTest extends TestCase
         $actual = ob_get_contents();
         ob_end_clean();
 
-        $expected = file_get_contents('approved.txt');
+        $expected = file_get_contents(__DIR__ . '/approved.txt');
         $this->assertEquals($expected, $actual);
 
     }
