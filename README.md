@@ -14,7 +14,7 @@ Prefer small changes in the design, for instance before applying a design patter
 # Where do I start?
 
 **Instructions and hints**
-: We've found some weaknesses for you. Pick your choice in [instructions-intermediate.md](https://github.com/martinsson/BugsZero-Kata/instructions-intermediate.md)
+: We've found some weaknesses for you. Pick your choice in [instructions-intermediate.md](https://github.com/martinsson/BugsZero-Kata/blob/master/instructions-intermediate.md)
 
 
 ## Solutions
