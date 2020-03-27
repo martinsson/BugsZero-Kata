@@ -15,17 +15,34 @@ class GameRunner {
 
         do {
 
-            $aGame->roll(rand(0,5) + 1);
-
-            if (rand(0,9) == 7) {
-                $notAWinner = $aGame->wrongAnswer();
-            } else {
-                $notAWinner = $aGame->wasCorrectlyAnswered();
-            }
-
+            $notAWinner = self::runRound($aGame);
 
 
         } while ($notAWinner);
+    }
+
+    /**
+     * @param Game $aGame
+     * @return bool
+     */
+    public static function runRound(Game $aGame)
+    {
+        $aGame->roll(rand(0, 5) + 1);
+
+        if (rand(0, 9) == 7) {
+            $notAWinner = $aGame->wrongAnswer();
+        } else {
+            $notAWinner = $aGame->wasCorrectlyAnswered();
+        }
+        return $notAWinner;
+    }
+
+    public static function runRounds( $aGame, $number ) {
+        $notAWinner = true;
+        for ($i=0; $i < $number; $i++) {
+            $notAWinner = ( $notAWinner && self::runRound($aGame) );
+        }
+        return $notAWinner;
     }
 }
 
