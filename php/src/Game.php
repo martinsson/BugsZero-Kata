@@ -57,6 +57,16 @@ class Game {
 		return true;
 	}
 
+	function remove($playerNumber) {
+        $playerName = $this->players[$playerNumber];
+        array_splice($this->players, $playerNumber, 1);
+
+        echoln( $playerName . " leaved");
+        for( $i = 0; $i < $this->howManyPlayers(); $i++ ) {
+            echoln($this->players[$i] . " is now number " . $i );
+        }
+    }
+
 	function howManyPlayers() {
 		return count($this->players);
 	}
