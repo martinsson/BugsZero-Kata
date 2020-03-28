@@ -25,67 +25,17 @@ class GameTest extends TestCase
 
     }
 
-    public function playerDataTurnTwelve() {
-        return [
-            'coins' => [
-                'getCoins',
-                [
-                    'Katrin' => 4,
-                    'Constantine' => 4
-                ]
-            ],
-            'place' => [
-                'getPlace',
-                [
-                    'Katrin' => 0,
-                    'Constantine' => 8
-                ]
-            ],
-            'inPenaltyBox' => [
-                'isInPenaltyBox',
-                [
-                    'Katrin' => false,
-                    'Constantine' => false
-                ]
-            ]
-        ];
-    }
-
-    /**
-     * @dataProvider playerDataTurnTwelve
-     * @param string $getter
-     * @param array  $expectedValueFor
-     */
-    public function testPlayersKeepDataWhenOtherPlayerLeaves( $getter, $expectedValueFor ) {
-        $katrin = new Player('Katrin');
-        $seraphin = new Player('Seraphin');
-        $constantine = new Player('Constantine');
-        $game = $this->setGameForPlayers($katrin, $seraphin, $constantine );
-        $this->runRoundsDeterministically($game);
-
-        $game->removePlayer(1);
-
-        $this->assertEquals( $expectedValueFor['Katrin'], $katrin->$getter() );
-        $this->assertEquals( $expectedValueFor['Constantine'], $constantine->$getter() );
-    }
-
-    public function setGameForPlayers( ...$players )
-    {
+    public function testDisplayCorrectPlayersNumbersWhenPlayersLeave() {
         $game = new Game();
+        $game->addPlayer( new Player('Etienne') );
+        $game->addPlayer(new Player('Esmeralda'));
+        $game->addPlayer(new Player('Bigsby'));
 
-        foreach( $players as $player ) {
-            $game->addPlayer($player);
-        };
+        ob_flush();
+        ob_start();
+        $game->removePlayer(1);
+        $output = ob_end_clean();
 
-        return $game;
-    }
-
-    /**
-     * @param Game $game
-     */
-    public function runRoundsDeterministically(Game $game)
-    {
-        srand(123455);
-        GameRunner::runRounds($game, 12);
+        $this->assertEquals( '', $output );
     }
 }
