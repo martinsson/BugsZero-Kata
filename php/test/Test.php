@@ -59,7 +59,21 @@ class GameTest extends TestCase
 
         $game->remove(0);
 
-        $this->assertEquals( 'Aïcha', $game->getCurrentPlayer()->getName() );
+        $this->assertEquals( 'Aïcha', $game->getNameForCurrentPlayer());
+    }
+
+    public function testGetNextPlayerWhenCurrentPlayerLeaves() {
+        $game = $this->setGameForPlayers(
+            new Player('Camilla'),
+            new Player('Ludwig'),
+            new Player('Amine')
+        );
+
+        GameRunner::runRound($game);
+
+        $game->remove(1);
+
+        $this->assertEquals( 'Amine', $game->getNameForCurrentPlayer());
     }
 
     public function playerDataTurnTwelve() {
