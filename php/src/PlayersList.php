@@ -47,4 +47,8 @@ class PlayersList {
         if ($this->currentPlayerNumber == count($this->players)) $this->currentPlayerNumber = 0;
         $this->currentPlayer = $this->players[$this->currentPlayerNumber];
     }
+
+    public function getInfo() {
+        return new PlayerInfoIterator($this->players);
+    }
 }

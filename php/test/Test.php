@@ -34,8 +34,11 @@ class GameTest extends TestCase
         ob_flush();
         ob_start();
         $game->removePlayer(1);
-        $output = ob_end_clean();
+        $output = ob_get_clean();
 
-        $this->assertEquals( '', $output );
+        $this->assertEquals( 'Esmeralda leaved
+Etienne is now number 0
+Bigsby is now number 1
+', $output );
     }
 }

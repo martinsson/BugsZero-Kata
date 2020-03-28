@@ -54,8 +54,8 @@ class Game {
         $player = $this->playersOnline->remove($playerNumber);
 
         echoln( $player->getName() . " leaved");
-        for($i = 0; $i < $this->playersOnline->howManyPlayers(); $i++ ) {
-            echoln($this->players[$i]->getName() . " is now number " . $i );
+        foreach($this->playersOnline->getInfo() as $playerInfo) {
+            echoln($playerInfo['name'] . " is now number " . $playerInfo['number'] );
         }
     }
 
