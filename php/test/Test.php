@@ -59,7 +59,7 @@ class GameTest extends TestCase
 
         $game->remove(0);
 
-        $this->assertEquals( 'Aïcha', $game->players[$game->currentPlayer]->getName() );
+        $this->assertEquals( 'Aïcha', $game->getCurrentPlayer()->getName() );
     }
 
     public function playerDataTurnTwelve() {

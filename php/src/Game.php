@@ -17,6 +17,7 @@ class Game {
 
     var $currentPlayer = 0;
     var $isGettingOutOfPenaltyBox;
+    private $mustache;
 
     function  __construct(){
 
@@ -212,13 +213,14 @@ class Game {
     {
         $this->currentPlayer++;
         if ($this->currentPlayer == count($this->players)) $this->currentPlayer = 0;
+        $this->mustache = $this->players[$this->currentPlayer];
     }
 
-    /**
-     * @return mixed
-     */
     public function getCurrentPlayer()
     {
-        return $this->players[$this->currentPlayer];
+        if ( ! isset( $this->mustache ) ) {
+            $this->mustache = $this->players[0];
+        }
+        return $this->mustache;
     }
 }
