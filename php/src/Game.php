@@ -69,33 +69,33 @@ class Game {
 	}
 
     public function getNameForCurrentPlayer() {
-        return $this->players[$this->currentPlayer]->getName();
+        return $this->getCurrentPlayer()->getName();
     }
 
     public function getPursesForCurrentPlayer() {
-        return $this->players[$this->currentPlayer]->getCoins();
+        return $this->getCurrentPlayer()->getCoins();
     }
 
     public function addPurseForCurrentPlayer()
     {
-        $this->players[$this->currentPlayer]->addCoin();
+        $this->getCurrentPlayer()->addCoin();
     }
 
     public function isCurrentPlayerInPenaltyBox() {
-        return $this->players[$this->currentPlayer]->isInPenaltyBox();
+        return $this->getCurrentPlayer()->isInPenaltyBox();
     }
 
     public function setCurrentPlayerInPenaltyBox() {
-        $this->players[$this->currentPlayer]->setInPenaltyBox();
+        $this->getCurrentPlayer()->setInPenaltyBox();
     }
 
     public function getPlaceForCurrentPlayer() {
-        return $this->players[$this->currentPlayer]->getPlace();
+        return $this->getCurrentPlayer()->getPlace();
     }
 
     public function movePlayerBy($roll)
     {
-        $this->players[$this->currentPlayer]->moveBy($roll);
+        $this->getCurrentPlayer()->moveBy($roll);
     }
 
 
@@ -169,14 +169,12 @@ class Game {
 						. " Gold Coins.");
 
 				$winner = $this->didPlayerWin();
-				$this->currentPlayer++;
-				if ($this->currentPlayer == count($this->players)) $this->currentPlayer = 0;
+                $this->nextPlayerTurn();
 
-				return $winner;
+                return $winner;
 			} else {
-				$this->currentPlayer++;
-				if ($this->currentPlayer == count($this->players)) $this->currentPlayer = 0;
-				return true;
+                $this->nextPlayerTurn();
+                return true;
 			}
 
 
@@ -191,10 +189,9 @@ class Game {
 					. " Gold Coins.");
 
 			$winner = $this->didPlayerWin();
-			$this->currentPlayer++;
-			if ($this->currentPlayer == count($this->players)) $this->currentPlayer = 0;
+            $this->nextPlayerTurn();
 
-			return $winner;
+            return $winner;
 		}
 	}
 
@@ -203,12 +200,25 @@ class Game {
 		echoln($this->getNameForCurrentPlayer() . " was sent to the penalty box");
 	    $this->setCurrentPlayerInPenaltyBox();
 
-		$this->currentPlayer++;
-		if ($this->currentPlayer == count($this->players)) $this->currentPlayer = 0;
-		return true;
+        $this->nextPlayerTurn();
+        return true;
 	}
 
     function didPlayerWin() {
 		return !($this->getPursesForCurrentPlayer() == 6);
 	}
+
+    public function nextPlayerTurn()
+    {
+        $this->currentPlayer++;
+        if ($this->currentPlayer == count($this->players)) $this->currentPlayer = 0;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCurrentPlayer()
+    {
+        return $this->players[$this->currentPlayer];
+    }
 }
