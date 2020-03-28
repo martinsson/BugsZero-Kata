@@ -2,6 +2,7 @@
 
 use Game\Game;
 use Game\GameRunner;
+use Game\Player;
 use PHPUnit\Framework\TestCase;
 
 class GameTest extends TestCase
@@ -24,10 +25,11 @@ class GameTest extends TestCase
     }
 
     public function testCorrectNumberOfPlayersWhenPlayersAdded() {
-        $game = new Game();
-        $game->add('Kristof');
-        $game->add('Julio');
-        $game->add('Soraya');
+        $game = $this->setGameForPlayers(
+            new Player( 'Kristof' ),
+            new Player( 'Julio' ),
+            new Player( 'Soraya' )
+        );
 
         $this->assertEquals( 3, $game->howManyPlayers());
 
@@ -46,54 +48,56 @@ class GameTest extends TestCase
         $this->assertEquals(2, $game->howManyPlayers());
     }
 
-    public function testPlayerKeepPursesWhenOtherPlayerLeaves() {
-        $game = $this->setGameFor('Katrin', 'Seraphin', 'Constantine');
-        $this->runRoundsDeterminastically($game);
-
-        $katrinPurses = $game->purses[0];
-        $constantinePurses = $game->purses[2];
-
-        $game->remove(1);
-
-        $this->assertEquals( $katrinPurses, $game->purses[0] );
-        $this->assertEquals( $constantinePurses, $game->purses[1] );
-    }
-
-    public function testPlayerKeepPlaceWhenOtherPlayerLeaves() {
-        $game = $this->setGameFor('Katrin', 'Seraphin', 'Constantine' );
-        $this->runRoundsDeterminastically($game);
-
-        $katrinPlace = $game->places[0];
-        $constantinePlace = $game->places[2];
-
-        $game->remove(1);
-
-        $this->assertEquals( $katrinPlace, $game->places[0] );
-        $this->assertEquals( $constantinePlace, $game->places[1] );
-    }
-
-    public function testPlayerStaysInPenaltyBoxWhenOtherPlayerLeaves() {
-        $game = $this->setGameFor('Katrin', 'Seraphin', 'Constantine');
-        $this->runRoundsDeterminastically($game);
-
-        $katrinInPenaltyBox = $game->inPenaltyBox[0];
-        $constantineInPenaltyBox = $game->inPenaltyBox[2];
-
-        $game->remove(1);
-
-        $this->assertEquals( $katrinInPenaltyBox, $game->inPenaltyBox[0] );
-        $this->assertEquals( $constantineInPenaltyBox, $game->inPenaltyBox[1] );
+    public function playerDataTurnTwelve() {
+        return [
+            'coins' => [
+                'getCoins',
+                [
+                    'Katrin' => 4,
+                    'Constantine' => 4
+                ]
+            ],
+            'place' => [
+                'getPlace',
+                [
+                    'Katrin' => 0,
+                    'Constantine' => 8
+                ]
+            ],
+            'inPenaltyBox' => [
+                'isInPenaltyBox',
+                [
+                    'Katrin' => false,
+                    'Constantine' => false
+                ]
+            ]
+        ];
     }
 
     /**
-     * @return Game
+     * @dataProvider playerDataTurnTwelve
+     * @param string $getter
+     * @param array  $expectedValueFor
      */
-    public function setGameFor( ...$players )
+    public function testPlayersKeepDataWhenOtherPlayerLeaves( $getter, $expectedValueFor ) {
+        $katrin = new Player('Katrin');
+        $seraphin = new Player('Seraphin');
+        $constantine = new Player('Constantine');
+        $game = $this->setGameForPlayers($katrin, $seraphin, $constantine );
+        $this->runRoundsDeterministically($game);
+
+        $game->remove(1);
+
+        $this->assertEquals( $expectedValueFor['Katrin'], $katrin->$getter() );
+        $this->assertEquals( $expectedValueFor['Constantine'], $constantine->$getter() );
+    }
+
+    public function setGameForPlayers( ...$players )
     {
         $game = new Game();
 
-        foreach( $players as $playerName ) {
-            $game->add($playerName);
+        foreach( $players as $player ) {
+            $game->add($player);
         };
 
         return $game;
@@ -102,7 +106,7 @@ class GameTest extends TestCase
     /**
      * @param Game $game
      */
-    public function runRoundsDeterminastically(Game $game)
+    public function runRoundsDeterministically(Game $game)
     {
         srand(123455);
         GameRunner::runRounds($game, 12);

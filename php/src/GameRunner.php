@@ -8,9 +8,9 @@ class GameRunner {
 
         $aGame = new Game();
 
-        $aGame->add("Chet");
-        $aGame->add("Pat");
-        $aGame->add("Sue");
+        $aGame->add(new Player("Chet"));
+        $aGame->add(new Player("Pat"));
+        $aGame->add(new Player("Sue"));
 
 
         do {
