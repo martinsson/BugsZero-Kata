@@ -5,7 +5,7 @@ function echoln($string) {
 }
 
 class Game {
-    var $players;
+    private $playersOnline;
     var $places;
     var $purses ;
     var $inPenaltyBox ;
@@ -15,12 +15,11 @@ class Game {
     var $sportsQuestions;
     var $rockQuestions;
 
-    var $currentPlayer = 0;
     var $isGettingOutOfPenaltyBox;
-    private $mustache;
 
     function  __construct(){
 
+        $this->playersOnline = new PlayersList();
    	$this->players = array();
         $this->places = array(0);
         $this->purses  = array(0);
@@ -44,62 +43,54 @@ class Game {
 	}
 
     function isPlayable() {
-		return ($this->howManyPlayers() >= 2);
+		return ($this->playersOnline->howManyPlayers() >= 2);
 	}
 
-    function add($player) {
-	    array_push($this->players,$player);
+    function addPlayer($player) {
+        $this->playersOnline->add($player);
 
-	    echoln($player->getName() . " was added");
-	    echoln("They are player number " . count($this->players));
+        echoln($player->getName() . " was added");
+	    echoln("They are player number " . $this->playersOnline->howManyPlayers());
 		return true;
 	}
 
-    function remove($playerNumber) {
-        $player = $this->players[$playerNumber];
-        array_splice($this->players, $playerNumber, 1);
-        if ( $player === $this->mustache ) {
-            $this->mustache = $this->players[$this->currentPlayer];
-        }
+    function removePlayer($playerNumber) {
+        $player = $this->playersOnline->remove($playerNumber);
 
         echoln( $player->getName() . " leaved");
-        for( $i = 0; $i < $this->howManyPlayers(); $i++ ) {
+        for($i = 0; $i < $this->playersOnline->howManyPlayers(); $i++ ) {
             echoln($this->players[$i]->getName() . " is now number " . $i );
         }
     }
 
-    function howManyPlayers() {
-		return count($this->players);
-	}
-
     public function getNameForCurrentPlayer() {
-        return $this->getCurrentPlayer()->getName();
+        return $this->playersOnline->getCurrentPlayer($this)->getName();
     }
 
     public function getPursesForCurrentPlayer() {
-        return $this->getCurrentPlayer()->getCoins();
+        return $this->playersOnline->getCurrentPlayer($this)->getCoins();
     }
 
     public function addPurseForCurrentPlayer()
     {
-        $this->getCurrentPlayer()->addCoin();
+        $this->playersOnline->getCurrentPlayer($this)->addCoin();
     }
 
     public function isCurrentPlayerInPenaltyBox() {
-        return $this->getCurrentPlayer()->isInPenaltyBox();
+        return $this->playersOnline->getCurrentPlayer($this)->isInPenaltyBox();
     }
 
     public function setCurrentPlayerInPenaltyBox() {
-        $this->getCurrentPlayer()->setInPenaltyBox();
+        $this->playersOnline->getCurrentPlayer($this)->setInPenaltyBox();
     }
 
     public function getPlaceForCurrentPlayer() {
-        return $this->getCurrentPlayer()->getPlace();
+        return $this->playersOnline->getCurrentPlayer($this)->getPlace();
     }
 
     public function movePlayerBy($roll)
     {
-        $this->getCurrentPlayer()->moveBy($roll);
+        $this->playersOnline->getCurrentPlayer($this)->moveBy($roll);
     }
 
 
@@ -173,11 +164,11 @@ class Game {
 						. " Gold Coins.");
 
 				$winner = $this->didPlayerWin();
-                $this->nextPlayerTurn();
+                $this->playersOnline->nextPlayerTurn($this);
 
                 return $winner;
 			} else {
-                $this->nextPlayerTurn();
+                $this->playersOnline->nextPlayerTurn($this);
                 return true;
 			}
 
@@ -193,7 +184,7 @@ class Game {
 					. " Gold Coins.");
 
 			$winner = $this->didPlayerWin();
-            $this->nextPlayerTurn();
+            $this->playersOnline->nextPlayerTurn($this);
 
             return $winner;
 		}
@@ -204,7 +195,7 @@ class Game {
 		echoln($this->getNameForCurrentPlayer() . " was sent to the penalty box");
 	    $this->setCurrentPlayerInPenaltyBox();
 
-        $this->nextPlayerTurn();
+        $this->playersOnline->nextPlayerTurn($this);
         return true;
 	}
 
@@ -212,18 +203,4 @@ class Game {
 		return !($this->getPursesForCurrentPlayer() == 6);
 	}
 
-    public function nextPlayerTurn()
-    {
-        $this->currentPlayer++;
-        if ($this->currentPlayer == count($this->players)) $this->currentPlayer = 0;
-        $this->mustache = $this->players[$this->currentPlayer];
-    }
-
-    public function getCurrentPlayer()
-    {
-        if ( ! isset( $this->mustache ) ) {
-            $this->mustache = $this->players[0];
-        }
-        return $this->mustache;
-    }
 }
