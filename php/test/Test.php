@@ -48,6 +48,20 @@ class GameTest extends TestCase
         $this->assertEquals(2, $game->howManyPlayers());
     }
 
+    public function testKeepCurrentPlayerWhenPlayerLeaves() {
+        $game = $this->setGameForPlayers(
+            new Player('Damien'),
+            new Player('Aïcha'),
+            new Player('Stéphanie')
+        );
+
+        GameRunner::runRound($game);
+
+        $game->remove(0);
+
+        $this->assertEquals( 'Aïcha', $game->players[$game->currentPlayer]->getName() );
+    }
+
     public function playerDataTurnTwelve() {
         return [
             'coins' => [
