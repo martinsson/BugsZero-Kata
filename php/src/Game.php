@@ -58,6 +58,9 @@ class Game {
     function remove($playerNumber) {
         $player = $this->players[$playerNumber];
         array_splice($this->players, $playerNumber, 1);
+        if ( $player === $this->mustache ) {
+            $this->mustache = $this->players[$this->currentPlayer];
+        }
 
         echoln( $player->getName() . " leaved");
         for( $i = 0; $i < $this->howManyPlayers(); $i++ ) {
