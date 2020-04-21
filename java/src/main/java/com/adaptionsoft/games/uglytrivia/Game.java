@@ -16,25 +16,59 @@ public class Game {
     
     int currentPlayer = 0;
     boolean isGettingOutOfPenaltyBox;
-    
-    public  Game(){
-    	for (int i = 0; i < 50; i++) {
+
+	/**
+	 * It used to be possible to construct a game with less than two players and with more than six players
+	 * however at runtime things did not work out. There was also no validation that the game was in a
+	 * playable state. The user had to come up with the idea to call the isPlayable method.
+	 *
+	 * In this version it will not compile for anything other than 2-6 players. The Game class can only be
+	 * instantiated it the correct way, and the user gets immediate feedback from the compiler on any
+	 * usage errors.
+	 *
+	 * Granted this type of technique becomes awkward when the number of constructors grows big, in those
+	 * cases we revert back to a more traditional strategy of runtime validations in the constructor.
+	 */
+	public  Game(String player1, String player2){
+		this.add(player1);
+		this.add(player2);
+		createQuestions();
+	}
+
+	public  Game(String player1, String player2, String player3){
+		this(player1, player2);
+		this.add(player3);
+	}
+
+	public  Game(String player1, String player2, String player3, String player4){
+		this(player1, player2, player3);
+		this.add(player4);
+	}
+
+	public  Game(String player1, String player2, String player3, String player4, String player5){
+		this(player1, player2, player3, player4);
+		this.add(player5);
+	}
+
+	public  Game(String player1, String player2, String player3, String player4, String player5, String player6){
+		this(player1, player2, player3, player4, player5);
+		this.add(player6);
+	}
+
+	private void createQuestions() {
+		for (int i = 0; i < 50; i++) {
 			popQuestions.addLast("Pop Question " + i);
 			scienceQuestions.addLast(("Science Question " + i));
 			sportsQuestions.addLast(("Sports Question " + i));
 			rockQuestions.addLast(createRockQuestion(i));
-    	}
-    }
+		}
+	}
 
 	public String createRockQuestion(int index){
 		return "Rock Question " + index;
 	}
 
-	public boolean isPlayable() {
-		return (howManyPlayers() >= 2);
-	}
-
-	public boolean add(String playerName) {
+	private boolean add(String playerName) {
 		
 		
 	    players.add(playerName);
