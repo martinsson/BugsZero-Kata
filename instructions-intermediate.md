@@ -9,7 +9,7 @@ You'll practice reading code, looking for parts where it is likely that develope
 This repository comes packaged with code that is totally tested, using the Golden Master technique. Pick the language of your choice in 
 this repository or contribute another one. In case there is none
 you're comfortable with you can always try to do this without tests
-using any of the [available languages](https://github.com/caradojo/trivia). Beware that it is not identical as we've modified the code to remove some of the noise that wasn't relevant to sources of bugs.
+using Java. Beware that it is not identical as we've modified the code to remove some of the noise that wasn't relevant to sources of bugs.
 
 ## Procedure
 1. Identify a weakness in the design - now that's where we're helping you.
