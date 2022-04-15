@@ -1,39 +1,77 @@
 package com.adaptionsoft.games.uglytrivia;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 
+import com.adaptionsoft.games.trivia.enums.QuestionEnum;
+
+/*
+ * Remarques: 
+ * - Il faudrait créer une classe Question qui contienne une liste des propositions
+ *  dont une est correcte et tester dans le jeux sur cette valeur pour avoir un jeux de donnée réel
+ */
+
 public class Game {
-    ArrayList players = new ArrayList();
+	
     int[] places = new int[6];
     int[] purses  = new int[6];
+    
     boolean[] inPenaltyBox  = new boolean[6];
-    
-    LinkedList popQuestions = new LinkedList();
-    LinkedList scienceQuestions = new LinkedList();
-    LinkedList sportsQuestions = new LinkedList();
-    LinkedList rockQuestions = new LinkedList();
-    
+   
+    LinkedList<String> popQuestions = new LinkedList<String>();
+    LinkedList<String> scienceQuestions = new LinkedList<String>();
+    LinkedList<String> sportsQuestions = new LinkedList<String>();
+    LinkedList<String> rockQuestions = new LinkedList<String>();
+    ArrayList<String> players = new ArrayList<String>();
+
+
     int currentPlayer = 0;
     boolean isGettingOutOfPenaltyBox;
-    
+    private static String MSG_CORRECT_ANSWER = "Answer was correct!!!!";
+    private static String MSG_INCORRECT_ANSWER = "Question was incorrectly answered";
+
+    /*
+     *  Cette methode sert à initialiser les liste des questions
+     */
     public  Game(){
     	for (int i = 0; i < 50; i++) {
-			popQuestions.addLast("Pop Question " + i);
-			scienceQuestions.addLast(("Science Question " + i));
-			sportsQuestions.addLast(("Sports Question " + i));
-			rockQuestions.addLast(createRockQuestion(i));
+			popQuestions.addLast(createQuestion(QuestionEnum.POP.getCode(),i));
+			scienceQuestions.addLast(createQuestion(QuestionEnum.SCIENCE.getCode(),i));
+			sportsQuestions.addLast(createQuestion(QuestionEnum.SPORTS.getCode(),i));
+			rockQuestions.addLast(createQuestion(QuestionEnum.ROCK.getCode(),i));
     	}
     }
 
-	public String createRockQuestion(int index){
-		return "Rock Question " + index;
+    /*
+     *  @param : type
+     *  		Le type de la question
+     *  @param : index
+     *  		L'index de la question dans sa liste
+     *  @return 
+     *  		Le message à insérer dans la liste
+     */
+	public String createQuestion(String type, int index){
+		StringBuilder str = new StringBuilder();
+		str.append(type);
+		str.append(" Question ");
+		str.append(index);
+		return str.toString();
 	}
 
+	/*
+	 *  Première règle de jeux : Le nombre deux joueurs devra être au moins deux joueurs 
+	 */
 	public boolean isPlayable() {
 		return (howManyPlayers() >= 2);
 	}
 
+	/*
+	 *  @param : playerName
+	 *  		Le nom du joueur
+	 *  @result
+	 *      Un boolean qui indique si le joueur est bien initialisé dans le jeux
+	 */
 	public boolean add(String playerName) {
 		
 		
@@ -47,6 +85,10 @@ public class Game {
 		return true;
 	}
 	
+	/*
+	 *  @return
+	 *     		Le nombre total des joueurs dans le jeux
+	 */
 	public int howManyPlayers() {
 		return players.size();
 	}
@@ -73,94 +115,126 @@ public class Game {
 		
 	}
 
+	/*
+	 *  Repositionner le joueur et poser une question selon la catégorie actuelle ( nouvelle position du joueur )
+	 */
 	private void movePlayerAndAskQuestion(int roll) {
-		places[currentPlayer] = places[currentPlayer] + roll;
-		if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
-
+		
+		places[currentPlayer] = (places[currentPlayer] + roll) % 12;
+		
 		System.out.println(players.get(currentPlayer)
                 + "'s new location is "
                 + places[currentPlayer]);
-		System.out.println("The category is " + currentCategory());
-		askQuestion();
+		
+        String currentCategory = currentCategory();
+		System.out.println("The category is " + currentCategory);
+		askQuestion(currentCategory);
 	}
 
-	private void askQuestion() {
-		if (currentCategory() == "Pop")
-			System.out.println(popQuestions.removeFirst());
-		if (currentCategory() == "Science")
-			System.out.println(scienceQuestions.removeFirst());
-		if (currentCategory() == "Sports")
-			System.out.println(sportsQuestions.removeFirst());
-		if (currentCategory() == "Rock")
-			System.out.println(rockQuestions.removeFirst());		
-	}
+	/*
+	 *  Suppression de la question selon sa catégorie après le poser au joueur
+	 */
+	private void askQuestion(String category) {
 	
+		switch (category) {
+        case "Pop":
+            System.out.println(popQuestions.removeFirst());
+            break;
+        case "Science":
+            System.out.println(scienceQuestions.removeFirst());
+            break;
+        case "Sports":
+            System.out.println(sportsQuestions.removeFirst());
+            break;
+        case "Rock":
+            System.out.println(rockQuestions.removeFirst());
+            break;
+        default:
+            System.out.println("Unknown category");
+            break;
+    }
+}
 	
+	/*
+	 * @return 
+	 * 	  la catégorie de la question selon la position du joueur
+	 */
 	private String currentCategory() {
-		if (places[currentPlayer] == 0) return "Pop";
-		if (places[currentPlayer] == 4) return "Pop";
-		if (places[currentPlayer] == 8) return "Pop";
-		if (places[currentPlayer] == 1) return "Science";
-		if (places[currentPlayer] == 5) return "Science";
-		if (places[currentPlayer] == 9) return "Science";
-		if (places[currentPlayer] == 2) return "Sports";
-		if (places[currentPlayer] == 6) return "Sports";
-		if (places[currentPlayer] == 10) return "Sports";
-		return "Rock";
-	}
+        int playerPlace = places[currentPlayer];
 
+        if (Arrays.asList(0, 4, 8).contains(playerPlace)) {
+            return QuestionEnum.POP.getCode();
+        } else if (Arrays.asList(1, 5, 9).contains(playerPlace)) {
+            return QuestionEnum.SCIENCE.getCode();
+        } else if (Arrays.asList(2, 6, 10).contains(playerPlace)) {
+            return QuestionEnum.SPORTS.getCode();
+        } else {
+            return QuestionEnum.ROCK.getCode();
+        }
+    }
+
+	/*
+	 *  En cas d'une réponse correcte vérification si le joueur a gagné le jeux si non le passage au joueur suivant
+	 */
 	public boolean wasCorrectlyAnswered() {
-		if (inPenaltyBox[currentPlayer]){
-			if (isGettingOutOfPenaltyBox) {
-				System.out.println("Answer was correct!!!!");
-				currentPlayer++;
-				if (currentPlayer == players.size()) currentPlayer = 0;
-				purses[currentPlayer]++;
-				System.out.println(players.get(currentPlayer)
-						+ " now has "
-						+ purses[currentPlayer]
-						+ " Gold Coins.");
+        if (inPenaltyBox[currentPlayer]) {
+            if (isGettingOutOfPenaltyBox) {
 
-				boolean winner = didPlayerWin();
+                correctAnswerEffect();
+                // didPlayerWin doit vérifier si c'est le joueur courant qui a gagné, donc avant l'incrémentation
+                // du champ "currentPlayer"
+                boolean winner = didPlayerWin();
+                incrementPlayer();
+                return winner;
 
-				return winner;
-			} else {
-				currentPlayer++;
-				if (currentPlayer == players.size()) currentPlayer = 0;
-				return true;
-			}
-			
-			
-			
-		} else {
-		
-			System.out.println("Answer was corrent!!!!");
-			purses[currentPlayer]++;
-			System.out.println(players.get(currentPlayer) 
-					+ " now has "
-					+ purses[currentPlayer]
-					+ " Gold Coins.");
-			
-			boolean winner = didPlayerWin();
-			currentPlayer++;
-			if (currentPlayer == players.size()) currentPlayer = 0;
-			
-			return winner;
-		}
-	}
-	
-	public boolean wrongAnswer(){
-		System.out.println("Question was incorrectly answered");
-		System.out.println(players.get(currentPlayer)+ " was sent to the penalty box");
-		inPenaltyBox[currentPlayer] = true;
-		
-		currentPlayer++;
-		if (currentPlayer == players.size()) currentPlayer = 0;
-		return true;
-	}
+            /* comment ce cas peut-il arriver ? Si le joueur est en penaltyBox et n'est pas en phase de sortie
+            il n'est pas censé avoir la possibilité de répondre à une question */
+            } else {
+                incrementPlayer();
+                return true;
+            }
 
+        } else {
+            correctAnswerEffect();
+            boolean winner = didPlayerWin();
+            incrementPlayer();
+            return winner;
+        }
+    }
 
-	private boolean didPlayerWin() {
-		return !(purses[currentPlayer] == 6);
-	}
+    public void correctAnswerEffect() {
+        System.out.println(MSG_CORRECT_ANSWER);
+        purses[currentPlayer]++;
+        System.out.println(players.get(currentPlayer)
+                + " now has "
+                + purses[currentPlayer]
+                + " Gold Coins.");
+    }
+
+    /*
+     *  Passer le role au joueur suivant
+     */
+    public void incrementPlayer() {
+        currentPlayer++;
+        if (currentPlayer == players.size()) currentPlayer = 0;
+    }
+
+    /*
+     * En cas d'une réponse incorrect : envoyer le joueur à la penalty box et passer le role au joueur suivant
+     */
+    public boolean wrongAnswer() {
+        System.out.println(MSG_INCORRECT_ANSWER);
+        System.out.println(players.get(currentPlayer) + " was sent to the penalty box");
+        inPenaltyBox[currentPlayer] = true;
+
+        incrementPlayer();
+        return true;
+    }
+
+    /*
+     *  Vérifier si le joueur actuel a gagné 
+     */
+    private boolean didPlayerWin() {
+        return !(purses[currentPlayer] == 6);
+    }
 }
