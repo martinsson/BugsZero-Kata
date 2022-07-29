@@ -17,9 +17,6 @@ Prefer small changes in the design, for instance before applying a design patter
 : We've found some weaknesses for you. Pick your choice in [instructions-intermediate.md](https://github.com/martinsson/BugsZero-Kata/blob/master/instructions-intermediate.md)
 
 
-## Solutions
-After doing your version, have a look at the [various solutions](https://github.com/martinsson/BugsZero-Kata/blob/master/solutions.md) in the form of merge-requests. It is easy to see what the change was using the diff-view. They are meant to be (one of) the best trade-offs for the given problem. There's always trade-offs, but if you find a better or simply good alternative, please fork and merge-request and we'll reference it.
-
 ## Bug Patterns
 Have a look at the long list of common [bug-patterns](https://github.com/martinsson/BugsZero-Kata/blob/master/bug-patterns.md), mostly unnecessary weaknesses in design.
 
