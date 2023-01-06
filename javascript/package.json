@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "approvals": "^2.1.2",
+    "approvals": "^6.0.0",
     "chai": "^3.5.0",
     "mocha": "^5.2.0"
   },
