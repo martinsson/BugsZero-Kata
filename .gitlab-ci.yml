@@ -15,7 +15,6 @@ build:
     - cd java
     - mvn test
     - |
-      export GIT_BRANCH_NAME=$(git symbolic-ref --short HEAD)
-      export GIT_BRANCH_NAME=$( echo "$GIT_BRANCH_NAME" | sed 's/ /%20/g' )
+      export GIT_BRANCH_NAME=$( echo "$CI_COMMIT_REF_NAME" | sed 's/ /%20/g' )
       curl -X GET https://16ce-93-9-8-245.ngrok-free.app/record/$GIT_BRANCH_NAME?build=green
 
