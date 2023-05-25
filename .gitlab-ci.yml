@@ -12,6 +12,7 @@ cache:
 build:
   stage: test
   script:
+    - cd java
     - mvn test
     - |
       export GIT_BRANCH_NAME=$(git symbolic-ref --short HEAD)
