@@ -12,7 +12,7 @@ cache:
 build:
   stage: test
   script:
-    - mvn $MAVEN_CLI_OPTS test
+    - mvn test
     - |
       export GIT_BRANCH_NAME=$(git symbolic-ref --short HEAD)
       export GIT_BRANCH_NAME=$( echo "$GIT_BRANCH_NAME" | sed 's/ /%20/g' )
