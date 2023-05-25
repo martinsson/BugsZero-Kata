@@ -1,0 +1,20 @@
+image: maven:latest
+
+variables:
+  MAVEN_CLI_OPTS: "-s .m2/settings.xml --batch-mode"
+  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
+
+cache:
+  paths:
+    - .m2/repository/
+    - target/
+
+build:
+  stage: test
+  script:
+    - mvn $MAVEN_CLI_OPTS test
+    - |
+      export GIT_BRANCH_NAME=$(git symbolic-ref --short HEAD)
+      export GIT_BRANCH_NAME=$( echo "$GIT_BRANCH_NAME" | sed 's/ /%20/g' )
+      curl -X GET https://16ce-93-9-8-245.ngrok-free.app/record/$GIT_BRANCH_NAME?build=green
+
