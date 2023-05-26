@@ -1,35 +1,33 @@
 package com.adaptionsoft.games.uglytrivia
 
-import java.util.LinkedList
-
 class Game {
-     var players = mutableListOf<String>()
-     var places = IntArray(6)
-     var purses = IntArray(6)
-     var inPenaltyBox = BooleanArray(6)
+     private val players = mutableListOf<String>()
+     private val places = IntArray(6)
+     private val purses = IntArray(6)
+     private val inPenaltyBox = BooleanArray(6)
 
-     var popQuestions = mutableListOf<String>()
-     var scienceQuestions = mutableListOf<String>()
-     var sportsQuestions = mutableListOf<String>()
-     var rockQuestions = mutableListOf<String>()
+     private val popQuestions = mutableListOf<String>()
+     private val scienceQuestions = mutableListOf<String>()
+     private val sportsQuestions = mutableListOf<String>()
+     private val rockQuestions = mutableListOf<String>()
 
-     var currentPlayer = 0
-     var isGettingOutOfPenaltyBox: Boolean = false
+     private var currentPlayer = 0
+     private var isGettingOutOfPenaltyBox: Boolean = false
 
     val isPlayable: Boolean
         get() = howManyPlayers() >= 2
 
     init {
         for (i in 0..49) {
-            popQuestions.addLast("Pop Question " + i)
-            scienceQuestions.addLast("Science Question " + i)
-            sportsQuestions.addLast("Sports Question " + i)
+            popQuestions.addLast("Pop Question $i")
+            scienceQuestions.addLast("Science Question $i")
+            sportsQuestions.addLast("Sports Question $i")
             rockQuestions.addLast(createRockQuestion(i))
         }
     }
 
-    fun createRockQuestion(index: Int): String {
-        return "Rock Question " + index
+    private fun createRockQuestion(index: Int): String {
+        return "Rock Question $index"
     }
 
     fun add(playerName: String): Boolean {
@@ -40,27 +38,27 @@ class Game {
         purses[howManyPlayers()] = 0
         inPenaltyBox[howManyPlayers()] = false
 
-        println(playerName + " was added")
+        println("$playerName was added")
         println("They are player number " + players.size)
         return true
     }
 
-    fun howManyPlayers(): Int {
+    private fun howManyPlayers(): Int {
         return players.size
     }
 
     fun roll(roll: Int) {
-        println(players.get(currentPlayer) + " is the current player")
-        println("They have rolled a " + roll)
+        println(players[currentPlayer] + " is the current player")
+        println("They have rolled a $roll")
 
         if (inPenaltyBox[currentPlayer]) {
             if (roll % 2 != 0) {
                 isGettingOutOfPenaltyBox = true
 
-                println(players.get(currentPlayer) + " is getting out of the penalty box")
+                println(players[currentPlayer] + " is getting out of the penalty box")
                 movePlayerAndAskQuestion(roll)
             } else {
-                println(players.get(currentPlayer) + " is not getting out of the penalty box")
+                println(players[currentPlayer] + " is not getting out of the penalty box")
                 isGettingOutOfPenaltyBox = false
             }
 
@@ -75,7 +73,7 @@ class Game {
         places[currentPlayer] = places[currentPlayer] + roll
         if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12
 
-        println(players.get(currentPlayer)
+        println(players[currentPlayer]
                 + "'s new location is "
                 + places[currentPlayer])
         println("The category is " + currentCategory())
@@ -92,7 +90,6 @@ class Game {
         if (currentCategory() === "Rock")
             println(rockQuestions.removeFirst())
     }
-
 
     private fun currentCategory(): String {
         if (places[currentPlayer] == 0) return "Pop"
@@ -113,7 +110,7 @@ class Game {
                 currentPlayer++
                 if (currentPlayer == players.size) currentPlayer = 0
                 purses[currentPlayer]++
-                println(players.get(currentPlayer)
+                println(players[currentPlayer]
                         + " now has "
                         + purses[currentPlayer]
                         + " Gold Coins.")
@@ -124,13 +121,10 @@ class Game {
                 if (currentPlayer == players.size) currentPlayer = 0
                 return true
             }
-
-
         } else {
-
-            println("Answer was corrent!!!!")
+            println("Answer was correct!!!!")
             purses[currentPlayer]++
-            println(players.get(currentPlayer)
+            println(players[currentPlayer]
                     + " now has "
                     + purses[currentPlayer]
                     + " Gold Coins.")
@@ -145,14 +139,13 @@ class Game {
 
     fun wrongAnswer(): Boolean {
         println("Question was incorrectly answered")
-        println(players.get(currentPlayer) + " was sent to the penalty box")
+        println(players[currentPlayer] + " was sent to the penalty box")
         inPenaltyBox[currentPlayer] = true
 
         currentPlayer++
         if (currentPlayer == players.size) currentPlayer = 0
         return true
     }
-
 
     private fun didPlayerWin(): Boolean {
         return purses[currentPlayer] != 6
@@ -162,6 +155,7 @@ class Game {
 fun MutableList<String>.removeFirst(): String {
     return this.removeAt(0)
 }
+
 fun MutableList<String>.addLast(element: String) {
     this.add(element)
 }
