@@ -5,6 +5,7 @@ using Xunit;
 using Assent;
 using Assent.Reporters;
 using Assent.Reporters.DiffPrograms;
+using System.Collections.Generic;
 
 namespace Trivia
 {
@@ -16,11 +17,9 @@ namespace Trivia
             var output = new StringBuilder();
             Console.SetOut(new StringWriter(output));
 
-            Game aGame = new Game();
+            var players = new List<string> { "Chet", "Pat", "Sue" };
+            Game aGame = new Game(players);
             Console.WriteLine(aGame.IsPlayable());
-            aGame.Add("Chet");
-            aGame.Add("Pat");
-            aGame.Add("Sue");
 
             aGame.Roll(1);
             aGame.Roll(1);
@@ -65,26 +64,27 @@ namespace Trivia
         {
             return 
                 new Configuration()
-                
-            // Uncomment this block if an exception 
-            // « Could not find a diff program to use »
-            // is thrown and if you have VsCode installed.
-            // Otherwise, use other DiffProgram with its full path
-            // as parameter.
-            // See  https://github.com/droyad/Assent/wiki/Reporting
-//                    .UsingReporter(
-//                        new DiffReporter(
-//                            new []
-//                            {
+
+                    // Uncomment this block if an exception 
+                    // « Could not find a diff program to use »
+                    // is thrown and if you have VsCode installed.
+                    // Otherwise, use other DiffProgram with its full path
+                    // as parameter.
+                    // See  https://github.com/droyad/Assent/wiki/Reporting
+                    .UsingReporter(
+                        new DiffReporter(
+                            new[]
+                            {
                                 // For linux
-//                                new VsCodeDiffProgram(new []
-//                                {
-//                                    "/usr/bin/code"
-//                                })
-                
+                                //new VsCodeDiffProgram(new []
+                                //{
+                                //    "/usr/bin/code"
+                                //})
+
+
                                 // For Windows
-//                                new VsCodeDiffProgram(), 
-//                            }))
+                                new VsCodeDiffProgram(),
+                            }))
                 ;
         }
     }

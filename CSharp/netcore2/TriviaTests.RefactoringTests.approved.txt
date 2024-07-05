@@ -1,10 +1,10 @@
-﻿False
-Chet was Added
+﻿Chet was Added
 They are player number 1
 Pat was Added
 They are player number 2
 Sue was Added
 They are player number 3
+True
 Chet is the current player
 They have rolled a 1
 Chet's new location is 1
@@ -75,7 +75,7 @@ They have rolled a 1
 Chet's new location is 2
 The category is Sports
 Sports Question 3
-Answer was corrent!!!!
+Answer was correct!!!!
 Chet now has 1 Gold Coins.
 Question was incorrectly answered
 Pat was sent to the penalty box
@@ -110,4 +110,4 @@ Sue's new location is 9
 The category is Science
 Science Question 4
 Answer was correct!!!!
-Chet now has 2 Gold Coins.
+Sue now has 1 Gold Coins.
